@@ -142,7 +142,7 @@ static const char *player_32x32[] = {
 "k. c #4E7A92",
 "l. c #507E95",
 "z. c #518097",
-"x. c None",
+"x. c #161514",
 /* pixels */
 "x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",
 "x.x.x.x.x.x.x.x.x.x.x.x.x.x.      x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.",

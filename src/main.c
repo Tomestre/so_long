@@ -1,5 +1,11 @@
-#include "lib/mlx.h"
 #include "so_long.h"
+
+int close_window(t_game *game)
+{
+    free_game(game); // Clean up all resources
+    exit(0);
+    return (0);
+}
 
 int main(int argc, char **argv)
 {
@@ -15,21 +21,22 @@ int main(int argc, char **argv)
     game.mlx = mlx_init();
     if (!game.mlx)
     {
-        fprintf(stderr, "Error initializing MLX\n");
-        free_map(&game);
+        ft_printf("Error initializing MLX\n");
+        free_game(&game); // Use free_game instead of free_map
         return (1);
     }
     game.window = mlx_new_window(game.mlx, game.map.cols * 32, game.map.rows * 32, "So Long");
     if (!game.window)
     {
-        fprintf(stderr, "Error creating window\n");
-        free_map(&game);
+        ft_printf("Error creating window\n");
+        free_game(&game); // Use free_game instead of free_map
         return (1);
     }
     load_sprites(&game);
     render_map(&game);
     mlx_key_hook(game.window, key_hook, &game);
+    mlx_hook(game.window, 17, 0, close_window, &game); // Hook for window close (event 17)
     mlx_loop(game.mlx);
-    free_map(&game);
+    free_game(&game); // Ensure cleanup after mlx_loop (though typically unreachable)
     return (0);
 }

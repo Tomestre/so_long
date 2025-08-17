@@ -1,12 +1,13 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-#include "lib/mlx.h"
+#include "./mlx.h"
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
+#include "./libft/libft.h"
 
 typedef struct s_map
 {
@@ -45,4 +46,9 @@ void validate_map(t_game *game);
 void free_map(t_game *game);
 int key_hook(int keycode, t_game *game);
 void check_path(t_game *game);
+int	ft_printf(char const *str, ...);
+char *read_file(const char *file_path);
+int count_lines(const char *content);
+void free_game(t_game *game);
+
 #endif
